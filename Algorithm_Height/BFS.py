@@ -23,7 +23,19 @@ with open("test.txt",'r') as file1:
     #the first number is number of vertices
     #the second number is number of edges
     first_line = file1.readline().split()
-    vertices = int(first_line[1])
-    edges = int(first_line[2])
-    
+    vertices = int(first_line[0])
+    edges = int(first_line[1])
+    graph = {}
+    while edges >0:
+        line = file1.readline().split()
+        node1 = int(line[0])
+        node2 = int(line[1])
+        if node1 in graph.keys():
+            graph[node1] = graph.get(node1) + [node2]
+        else:
+            graph[node1] = [node2]
+        edges = edges-1
+    def bfs(graph, start, end, path=[]):
+        
+
 
